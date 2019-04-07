@@ -1,14 +1,14 @@
-public class Collec()
+class Collec()
 {
   private Node<int> Nums;
   
   public Collec()
   {
-    Nums = new Node<int>(0)
+    Nums = new Node<int>(0);
   }
   
   public Collec(int n){
-    Nums = new Node<int>(0)
+    Nums = new Node<int>(0);
     Nums.SetNext(new Node<int>(n));
   }
   
