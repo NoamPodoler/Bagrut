@@ -21,7 +21,7 @@ class Collec()
       Cell = Cell.GetNext();
     }
     
-    if(n > Cell.GetInfo())
+    if(n > Cell.GetValue())
     {
       Cell.SetNext(new Node<int>(n));
       return true;
@@ -33,7 +33,7 @@ class Collec()
   public int Small()
   {
     if (Nums.GetNext() != null)
-      return Nums.GetNext().GetInfo();
+      return Nums.GetNext().GetValue();
     else
       return -1;
   }
