@@ -1,0 +1,47 @@
+public class Collec()
+{
+  private Node<int> Nums;
+  
+  public Collec()
+  {
+    Nums = new Node<int>(0)
+  }
+  
+  public Collec(int n){
+    Nums = new Node<int>(0)
+    Nums.SetNext(new Node<int>(n));
+  }
+  
+  public bool Add(int n)
+  {
+    Node<int> Cell = Nums;
+    
+    while(Cell.GetNext() != null)
+    {
+      Cell = Cell.GetNext();
+    }
+    
+    if(n > Cell.GetInfo())
+    {
+      Cell.SetNext(new Node<int>(n));
+      return true;
+    }
+    
+    return false;
+  }
+  
+  public int Small()
+  {
+    if (Nums.GetNext() != null)
+      return Nums.GetNext().GetInfo();
+    else
+      return -1;
+  }
+  
+  public int Smallest(Collec c)
+  {
+    int SmallA = Small();
+    int SmallB = c.Small();
+    return SmallA < SmallB ? SmallA : SmallB;
+  }
+}
