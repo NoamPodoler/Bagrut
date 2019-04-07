@@ -1,0 +1,30 @@
+
+public static bool EvenTree(BinNode<int> Tree)
+{
+  if (Tree != null)
+  {
+    if (Math.Abs(GetHeight(Tree.GetLeft()) - GetHeight(Tree.GetRight())) > 1)
+      return false;
+    
+    return (EvenTree(Tree.GetLeft()) && EvenTree(Tree.GetRight()));
+  } 
+  return true;
+}
+
+// Get Height:
+
+public static int GetHeight(BinNode<int> Tree)
+{
+	return GetHeight(Tree, 0);
+}
+
+public static int GetHeight(BinNode<int> Tree, int Height)
+{
+	if (Tree != null)
+	{
+    	int right = GetHeight(Tree.GetRight(), Height + 1);
+    	int left = GetHeight(Tree.GetLeft(), Height + 1);
+    	return right > left ? right : left;
+	}
+	return Height;
+}
