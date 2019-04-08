@@ -1,0 +1,20 @@
+public static bool UpPath(BinNode<int> Tree)
+{
+  if (Tree != null)
+  {
+    BinNode<int> Left = Tree.GetLeft();
+    BinNode<int> Right = Tree.GetRight();
+    
+    bool LeftSide = false;
+    bool RightSide = false;
+    
+    if (Left.GetValue() > Tree.GetValue())
+      LeftSide = UpPath(Left);
+      
+    if (Right.GetValue() > Tree.GetValue())
+      RightSide = UpPath(Left);
+    
+  } 
+  
+  return true;
+}
