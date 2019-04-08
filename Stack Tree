@@ -1,0 +1,33 @@
+public static Stack<Stack<int>> StackTree(BinNode<Stack<int>> Tree)
+{
+  return StackTree(Tree, new Stack<int>());
+}
+
+public static Stack<Stack<int>> StackTree(BinNode<Stack<int>> Tree, Stack<int> stk)
+{
+  if (Tree != null)
+  {
+    StackTree(Tree.GetLeft(), stk); // go left
+    
+    Stack<int> Stack = Tree.GetValue();
+    
+    if (Stack.IsEmpty())
+      stk.push(0);
+      
+    else
+    {
+      int Num = 0;
+      int i = 0;
+      
+      while (!Stack.IsEmpty() || i < 3)
+      {
+        Num += Stack.Pop();
+        i++;
+      }
+    }
+    
+    StackTree(Tree.GetLeft(), stk); // go right
+    
+    return stk;
+  }
+}
