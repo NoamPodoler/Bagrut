@@ -36,8 +36,8 @@ public static bool Triangular(Node<int> List)
       return false;
     
     Parts[0] = Parts[0].GetNext();
-    Parts[1] = Parts[0].GetNext();
-    Parts[2] = Parts[0].GetNext();
+    Parts[1] = Parts[1].GetNext();
+    Parts[2] = Parts[2].GetNext();
   }
   return true;
 }
