@@ -9,7 +9,7 @@ public static bool UpPath(BinNode<int> Tree)
   if (!Tree.hasLeft() && !Tree.hasRight())
     return true;
 
-  if (Left.GetValue() > Tree.GetValue())
+  if (Left != null && Left.GetValue() > Tree.GetValue())
   {
     LeftSide = UpPath(Left);
     
@@ -17,7 +17,7 @@ public static bool UpPath(BinNode<int> Tree)
       return true;
   }
 
-  if (Right.GetValue() > Tree.GetValue())
+  if (Right != null && Right.GetValue() > Tree.GetValue())
   {
     RightSide = UpPath(Left);
     if (RightSide)
