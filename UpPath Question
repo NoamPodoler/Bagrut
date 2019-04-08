@@ -1,25 +1,28 @@
 public static bool UpPath(BinNode<int> Tree)
 {
-  if (Tree != null)
+  BinNode<int> Left = Tree.GetLeft(); // left child
+  BinNode<int> Right = Tree.GetRight(); // right child
+
+  bool LeftSide = false; // represents if there is an UpPath on the left side
+  bool RightSide = false; // represents if there is an UpPath on the right side
+
+  if (!Tree.hasLeft() && !Tree.hasRight())
+    return true;
+
+  if (Left.GetValue() > Tree.GetValue())
   {
-    BinNode<int> Left = Tree.GetLeft();
-    BinNode<int> Right = Tree.GetRight();
+    LeftSide = UpPath(Left);
     
-    bool LeftSide = false;
-    bool RightSide = false;
-    
-    if (Left.GetValue() > Tree.GetValue())
-      LeftSide = UpPath(Left);
-      
     if (LeftSide)
       return true;
-      
-    if (Right.GetValue() > Tree.GetValue())
-      RightSide = UpPath(Left);
-    
+  }
+
+  if (Right.GetValue() > Tree.GetValue())
+  {
+    RightSide = UpPath(Left);
     if (RightSide)
       return true;
-  } 
+  }
   
-  return true;
+  return false;
 }
