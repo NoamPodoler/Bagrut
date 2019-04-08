@@ -1,9 +1,9 @@
-public static Stack<Stack<int>> StackTree(BinNode<Stack<int>> Tree)
+public static Stack<int> StackTree(BinNode<Stack<int>> Tree)
 {
   return StackTree(Tree, new Stack<int>());
 }
 
-public static Stack<Stack<int>> StackTree(BinNode<Stack<int>> Tree, Stack<int> stk)
+public static Stack<int> StackTree(BinNode<Stack<int>> Tree, Stack<int> stk)
 {
   if (Tree != null)
   {
@@ -12,7 +12,7 @@ public static Stack<Stack<int>> StackTree(BinNode<Stack<int>> Tree, Stack<int> s
     Stack<int> Stack = Tree.GetValue();
     
     if (Stack.IsEmpty())
-      stk.push(0);
+      stk.Push(0);
       
     else
     {
