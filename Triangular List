@@ -13,7 +13,7 @@ public static bool Triangular(Node<int> List)
 {
   int Length = GetListLength(List);
   
-  if (Length % 3 != 0)
+  if (Length % 3 != 0 || Length == 0)
     return false;
   
   int Num = Length / 3;
