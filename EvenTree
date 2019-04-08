@@ -22,9 +22,9 @@ public static int GetHeight(BinNode<int> Tree, int Height)
 {
 	if (Tree != null)
 	{
-    	int right = GetHeight(Tree.GetRight(), Height + 1);
-    	int left = GetHeight(Tree.GetLeft(), Height + 1);
-    	return right > left ? right : left;
+		int right = GetHeight(Tree.GetRight(), Height + 1);
+		int left = GetHeight(Tree.GetLeft(), Height + 1);
+		return right > left ? right : left;
 	}
 	return Height;
 }
