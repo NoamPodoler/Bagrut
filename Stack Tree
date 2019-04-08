@@ -1,9 +1,11 @@
 public static Stack<int> StackTree(BinNode<Stack<int>> Tree)
 {
-  return StackTree(Tree, new Stack<int>());
+  Stack<int> Stack = new Stack<int>();
+  StackTree(Tree, Stack);
+  return Stack;
 }
 
-public static Stack<int> StackTree(BinNode<Stack<int>> Tree, Stack<int> stk)
+public static void StackTree(BinNode<Stack<int>> Tree, Stack<int> stk)
 {
   if (Tree != null)
   {
@@ -26,8 +28,6 @@ public static Stack<int> StackTree(BinNode<Stack<int>> Tree, Stack<int> stk)
       }
     }
     
-    StackTree(Tree.GetLeft(), stk); // go right
-    
-    return stk;
+    StackTree(Tree.GetLeft(), stk); // go right    
   }
 }
