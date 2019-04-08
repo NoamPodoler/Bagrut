@@ -11,9 +11,14 @@ public static bool UpPath(BinNode<int> Tree)
     if (Left.GetValue() > Tree.GetValue())
       LeftSide = UpPath(Left);
       
+    if (LeftSide)
+      return true;
+      
     if (Right.GetValue() > Tree.GetValue())
       RightSide = UpPath(Left);
     
+    if (RightSide)
+      return true;
   } 
   
   return true;
