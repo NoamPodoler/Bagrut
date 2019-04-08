@@ -1,0 +1,14 @@
+public static bool TwoKids(BinNode<int> Tree)
+{
+  if (Tree != null)
+  {
+    bool left = Tree.hasLeft();
+    bool right = Tree.hasRight();
+    
+    if (!(left && right) && !(!right && !left))
+      return false;
+      
+    return TwoKids(Tree.GetLeft()) && TwoKids(Tree.GetRight());
+  } 
+  return true;
+}
