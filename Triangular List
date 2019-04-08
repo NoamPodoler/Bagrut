@@ -1,0 +1,43 @@
+public static int GetListLength<T>(Node<T> List)
+{
+  int counter = 0;
+  Node<T> Cell = List; // Temp
+  while(Cell != null)
+  {
+    counter++;
+    Cell = Cell.GetNext();
+  }
+}
+
+public static bool Triangular(Node<int> List)
+{
+  int Length = GetListLength(List);
+  
+  if (Length % 3 != 0)
+    return false;
+  
+  int Num = Length / 3;
+  
+  Node<int>[] Parts = new Node<int>[3]; // saves each part of the list.
+  
+  Node<int> Cell = List; // Temp
+  for (int i = 0; i < 3; i++)
+  {
+    Parts[i] = Cell;
+    for (int j = 0; j < Num; j++)
+    {
+      Cell = Cell.GetNext();
+    }
+  }
+  
+  for (int k = 0; k < Num; k++)
+  {
+    if (Parts[0].GetValue()!=Parts[1].GetValue() || Parts[0].GetValue()!=Parts[2].GetValue())
+      return false;
+    
+    Parts[0] = Parts[0].GetNext();
+    Parts[1] = Parts[0].GetNext();
+    Parts[2] = Parts[0].GetNext();
+  }
+  return true;
+}
