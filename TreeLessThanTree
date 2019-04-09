@@ -1,0 +1,12 @@
+public static bool TreeLessThanTree(BinNode<int> t1, BinNode<int> t2)
+{
+  if (t1 != null)
+  {
+    if (!LessThanTree(t2, t1.GetValue()))
+      return false;
+    
+    return TreeLessThanTree(t1.GetLeft(), t2) && TreeLessThanTree(t1.GetRight(), t2);
+  }
+  
+  return true;
+}
